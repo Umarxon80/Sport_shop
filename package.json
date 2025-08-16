@@ -2,6 +2,7 @@
   "name": "sport_shop",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/Umarxon80/Sport_shop#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "joi": "^18.0.0",
     "mongoose": "^8.17.1",
