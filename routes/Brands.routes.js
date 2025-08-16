@@ -1,9 +1,8 @@
 import { Router } from "express";
+import { GetBrand } from "../controllers/Brands.controller.js";
 
 const BrandsRouter=Router()
 
-BrandsRouter.get("",(req,res)=>{
-    res.send("Brands")
-})
+BrandsRouter.get("",GetBrand)
 
 export default BrandsRouter

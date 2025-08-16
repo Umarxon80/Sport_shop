@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const Contract_typeSchema= new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
     months:{
         type:Number,
         enum:[5,10,15],
