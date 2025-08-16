@@ -1,9 +1,11 @@
 import { Router } from "express";
+import { DelCategory, GetCategory, PatchCategory, PostCategory } from "../controllers/Categories.controller.js";
 
 const CategoriesRouter=Router()
 
-CategoriesRouter.get("",(req,res)=>{
-    res.send("Categories")
-})
+CategoriesRouter.get("",GetCategory)
+CategoriesRouter.post("",PostCategory)
+CategoriesRouter.patch("/:id",PatchCategory)
+CategoriesRouter.delete("/:id",DelCategory)
 
 export default CategoriesRouter

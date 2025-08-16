@@ -8,6 +8,7 @@ import ContractsRouter from "./routes/Contract.routes.js"
 import PaymentsRouter from "./routes/Payments.routes.js"
 import ProductsRouter from "./routes/Products.routes.js"
 import ShopsRouter from "./routes/Shops.routes.js"
+import CustomersRouter from "./routes/Costumers.routes.js"
 
 const app=express()
 
@@ -15,6 +16,7 @@ app.use(express.json())
 app.use("/brands", BrandRouter)
 app.use("/categories", CategoriesRouter)
 app.use("/contract_types", Contract_typesRouter)
+app.use("/customers", CustomersRouter)
 app.use("/contracts", ContractsRouter)
 app.use("/payments", PaymentsRouter)
 app.use("/products", ProductsRouter)

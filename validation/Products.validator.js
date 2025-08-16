@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 
-export const PaymentValidator=Joi.object({
+export const ProductValidator=Joi.object({
     name:Joi.string().min(1).required(),
     shop_id:Joi.string().required(),
     brand_id:Joi.string().required(),
