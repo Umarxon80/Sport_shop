@@ -1,0 +1,26 @@
+{
+  "name": "sport_shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umarxon80/Sport_shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Umarxon80/Sport_shop/issues"
+  },
+  "homepage": "https://github.com/Umarxon80/Sport_shop#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "joi": "^18.0.0",
+    "mongoose": "^8.17.1",
+    "multer": "^2.0.2"
+  }
+}
