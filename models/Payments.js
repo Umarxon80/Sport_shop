@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const PaymentSchema= new mongoose.Schema({
     check_numb:{
-        type:String,
+        type:Number,
         minlength:1,
         required:true,
         unique:true

@@ -3,8 +3,9 @@ import {Contract_typePatchValidator, Contract_typeValidator } from "../validatio
 
 
 export const GetContract_type=async (req,res)=>{
+    let { page = 1, limit = 10 } = req.query;
     try {
-        let data=await Contract_type.find()
+        let data=await Contract_type.find().skip((page - 1) * limit).limit(limit);
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})

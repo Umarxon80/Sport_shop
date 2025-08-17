@@ -1,10 +1,11 @@
 import { Brand } from "../models/Brands.js";
-import { BrandPatchValidator, BrandValidator } from "../validation/Brands.validator.js";
+import { BrandPatchValidator, BrandValidator } from "../validation/Brands.validator.js";;
 
-
+    
 export const GetBrand=async (req,res)=>{
+    let { page = 1, limit = 10 } = req.query;
     try {
-        let data=await Brand.find()
+        let data=await Brand.find().skip((page - 1) * limit).limit(limit);
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})

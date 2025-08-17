@@ -6,8 +6,9 @@ import { ContractPatchValidator, ContractValidator } from "../validation/Contrac
 
 
 export const GetContract=async (req,res)=>{
+    let { page = 1, limit = 10 } = req.query;
     try {
-        let data=await Contract.find()
+        let data=await Contract.find().skip((page - 1) * limit).limit(limit);
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})
@@ -38,19 +39,21 @@ export const PostContract=async(req,res)=>{
             let now =new Date()
             let endDate =new Date()
             endDate.setMonth(endDate.getMonth() + creditMonths)
-            body.date = now.toISOString();     
-            body.end_date = endDate.toISOString(); 
+            body.date = now;     
+            body.end_date = endDate; 
         }
         if (!body.end_date) {
             let endDate =new Date(body.date)
             endDate.setMonth(endDate.getMonth() + creditMonths)
-            body.end_date = endDate.toISOString()
+            body.end_date = endDate
         }
         
         if (!body.debt) {
             let debt=(product.price-body.first_payment)*(1+(contract_type.percentage/100))
             body.debt=debt
         }
+        console.log(body);
+        
         let newContract= new Contract(body)
         await newContract.save()
         res.send(newContract)

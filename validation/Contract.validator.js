@@ -2,6 +2,7 @@ import Joi from "joi";
 
 
 export const ContractValidator=Joi.object({
+    contract_number:Joi.number(),
     product_id:Joi.string().min(1).required(),
     customer_id:Joi.string().required(),
     contract_type_id:Joi.string().required(),
@@ -14,6 +15,7 @@ export const ContractValidator=Joi.object({
 })
 
 export const ContractPatchValidator=Joi.object({
+    contract_number:Joi.number(),
     product_id:Joi.string().min(1),
     customer_id:Joi.string(),
     contract_type_id:Joi.string(),

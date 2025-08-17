@@ -9,6 +9,7 @@ import PaymentsRouter from "./routes/Payments.routes.js"
 import ProductsRouter from "./routes/Products.routes.js"
 import ShopsRouter from "./routes/Shops.routes.js"
 import CustomersRouter from "./routes/Costumers.routes.js"
+import searchRouter from "./routes/search.routes.js"
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -29,7 +30,7 @@ app.use("/contracts", ContractsRouter)
 app.use("/payments", PaymentsRouter)
 app.use("/products", ProductsRouter)
 app.use("/shops", ShopsRouter)
-
+app.use("/search",searchRouter)
 
 app.listen(PORT,()=>{
     console.log(`Server is on http://localhost:${PORT}`);

@@ -3,8 +3,9 @@ import { CustomerPatchValidator, CustomerValidator } from "../validation/Costume
 
 
 export const GetCustomer=async (req,res)=>{
+    let { page = 1, limit = 10 } = req.query;
     try {
-        let data=await Customer.find()
+        let data=await Customer.find().skip((page - 1) * limit).limit(limit);
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})

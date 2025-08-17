@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 const ContractSchema= new mongoose.Schema({
+    contract_number:{
+        type:String,
+    },
     product_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Product",
@@ -17,10 +20,10 @@ const ContractSchema= new mongoose.Schema({
         required:true
     },
     date:{
-        date: { type: Date, default: Date.now }
-    },
+        type: Date,
+        default: Date.now },
     end_date:{
-        date: { type: Date }
+         type: Date 
     },
     shop_id:{
         type:mongoose.Schema.Types.ObjectId,

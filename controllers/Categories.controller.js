@@ -3,8 +3,9 @@ import { CategoryPatchValidator, CategoryValidator } from "../validation/Categor
 
 
 export const GetCategory=async (req,res)=>{
+    let { page = 1, limit = 10 } = req.query;
     try {
-        let data=await Category.find()
+        let data=await Category.find().skip((page - 1) * limit).limit(limit);
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})
