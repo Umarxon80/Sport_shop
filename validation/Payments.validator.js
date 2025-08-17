@@ -8,3 +8,11 @@ export const PaymentValidator=Joi.object({
     status:Joi.boolean(),
     type:Joi.string().valid("Cash","Card").required()
 })
+
+export const PaymentPatchValidator=Joi.object({
+    check_numb:Joi.string().min(1),
+    sum:Joi.number().min(1),
+    contract_id:Joi.string(),
+    status:Joi.boolean(),
+    type:Joi.string().valid("Cash","Card")
+})

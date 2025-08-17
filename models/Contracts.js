@@ -30,7 +30,6 @@ const ContractSchema= new mongoose.Schema({
     debt:{
         type:Number,
         min:0,
-        required:true
     },
     first_payment:{
         type:Number,

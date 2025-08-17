@@ -10,9 +10,17 @@ import ProductsRouter from "./routes/Products.routes.js"
 import ShopsRouter from "./routes/Shops.routes.js"
 import CustomersRouter from "./routes/Costumers.routes.js"
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(__filename);
+
+
 const app=express()
 
 app.use(express.json())
+app.use("/files", express.static(__dirname + "/upload"));
 app.use("/brands", BrandRouter)
 app.use("/categories", CategoriesRouter)
 app.use("/contract_types", Contract_typesRouter)
