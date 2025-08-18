@@ -61,8 +61,11 @@ export const PostContract=async(req,res)=>{
             let debt=(product.price-body.first_payment)*(1+(contract_type.percentage/100))
             body.debt=debt
         }
-        console.log(body);
         
+        if (!body.monthly_payments) {
+            body.monthly_payments=body.debt/contract_type.months
+        }     
+        body.payment_for_month=false
         let newContract= new Contract(body)
         await newContract.save()
         res.send(newContract)

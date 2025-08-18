@@ -22,6 +22,7 @@ const app=express()
 
 app.use(express.json())
 app.use("/files", express.static(__dirname + "/upload"));
+
 app.use("/brands", BrandRouter)
 app.use("/categories", CategoriesRouter)
 app.use("/contract_types", Contract_typesRouter)

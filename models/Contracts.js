@@ -25,9 +25,21 @@ const ContractSchema= new mongoose.Schema({
     end_date:{
          type: Date 
     },
+    payment_for_month:{
+        type:Boolean,
+    },
     shop_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Shop",
+        required:true
+    },
+    monthly_payments:{
+        type:Number,
+    },
+    day_of_payment:{
+        type: Number,
+        min:1,
+        max:28,
         required:true
     },
     debt:{

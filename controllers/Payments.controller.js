@@ -38,14 +38,21 @@ export const PostPayment=async(req,res)=>{
                 return res.send({message:"Qarzdorlik tolab bolingan"})
             }
             contract.paid+=value.sum
-            let l = contract.paid + value.sum - contract.total; 
+            console.log(contract.paid);
+            console.log(value.sum );
+            console.log(contract.debt);
+            
+            let l = contract.paid + value.sum - contract.debt; 
             contract.debt-=value.sum
             if (contract.debt<0) {
                 contract.debt=0
                 await Contract.findByIdAndUpdate(value.contract_id, {paid:contract.paid,debt:contract.debt}, { new:true });
                 return res.send({message:"Qarzdorlik yopildi", kaytim:`${l}`})
             }
-            await Contract.findByIdAndUpdate(value.contract_id, {paid:contract.paid,debt:contract.debt}, { new:true });
+            if (value.sum>=contract.monthly_payments) {
+                contract.payment_for_month=true
+            }
+            await Contract.findByIdAndUpdate(value.contract_id, {paid:contract.paid,debt:contract.debt,payment_for_month:contract.payment_for_month}, { new:true });
         }
         let newPayment= new Payment(value)
         await newPayment.save()
