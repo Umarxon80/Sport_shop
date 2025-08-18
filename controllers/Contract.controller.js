@@ -17,7 +17,7 @@ export const GetContract=async (req,res)=>{
 export const GetOneContract=async (req,res)=>{
     let {id}=req.params
     try {
-        let data=await Contract.find({_id:id});
+        let data=await Contract.findOne({_id:id});
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})

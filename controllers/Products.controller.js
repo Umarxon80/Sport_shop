@@ -18,7 +18,7 @@ export const GetProduct=async (req,res)=>{
 export const GetOneProduct=async (req,res)=>{
     let {id}=req.params
     try {
-        let data=await Product.find({_id:id}).populate("brand_id").populate("category_id").populate("shop_id");
+        let data=await Product.findOne({_id:id}).populate("brand_id").populate("category_id").populate("shop_id");
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})

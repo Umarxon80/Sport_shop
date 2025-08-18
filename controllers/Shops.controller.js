@@ -18,7 +18,7 @@ export const GetOneShop=async (req,res)=>{
         let data=await Shop.find({_id:id});
         res.send(data)
     } catch (error) {
-        res.status(400).send({message:error.message})
+        res.status(400).sendOne({message:error.message})
     }
 }
 

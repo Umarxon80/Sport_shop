@@ -15,7 +15,7 @@ export const GetCategory=async (req,res)=>{
 export const GetOneCategory=async (req,res)=>{
     let {id}=req.params
     try {
-        let data=await Category.find({_id:id});
+        let data=await Category.findOne({_id:id});
         res.send(data)
     } catch (error) {
         res.status(400).send({message:error.message})
