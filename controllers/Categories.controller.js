@@ -12,6 +12,16 @@ export const GetCategory=async (req,res)=>{
     }
 }
 
+export const GetOneCategory=async (req,res)=>{
+    let {id}=req.params
+    try {
+        let data=await Category.find({_id:id});
+        res.send(data)
+    } catch (error) {
+        res.status(400).send({message:error.message})
+    }
+}
+
 export const PostCategory=async(req,res)=>{
     let {name}=req.body
     try {

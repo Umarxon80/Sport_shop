@@ -12,6 +12,16 @@ export const GetShop=async (req,res)=>{
     }
 }
 
+export const GetOneShop=async (req,res)=>{
+    let {id}=req.params
+    try {
+        let data=await Shop.find({_id:id});
+        res.send(data)
+    } catch (error) {
+        res.status(400).send({message:error.message})
+    }
+}
+
 export const PostShop=async(req,res)=>{
     let {name}=req.body
     try {

@@ -11,6 +11,15 @@ export const GetBrand=async (req,res)=>{
         res.status(400).send({message:error.message})
     }
 }
+export const GetOneBrand=async (req,res)=>{
+    let {id}=req.params
+    try {
+        let data=await Brand.findOne({_id:id});
+        res.send(data)
+    } catch (error) {
+        res.status(400).send({message:error.message})
+    }
+}
 
 export const PostBrand=async(req,res)=>{
     let {name}=req.body

@@ -13,6 +13,16 @@ export const GetPayment=async (req,res)=>{
     }
 }
 
+export const GetOnePayment=async (req,res)=>{
+    let {id}=req.params
+    try {
+        let data=await Payment.find({_id:id});
+        res.send(data)
+    } catch (error) {
+        res.status(400).send({message:error.message})
+    }
+}
+
 export const PostPayment=async(req,res)=>{
     try {
         let {value,error}=PaymentValidator.validate(req.body)

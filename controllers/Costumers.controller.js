@@ -12,6 +12,16 @@ export const GetCustomer=async (req,res)=>{
     }
 }
 
+export const GetOneCustomer=async (req,res)=>{
+    let {id}=req.params
+    try {
+        let data=await Customer.find({_id:id});
+        res.send(data)
+    } catch (error) {
+        res.status(400).send({message:error.message})
+    }
+}
+
 export const PostCustomer=async(req,res)=>{
     try {
         let {value,error}=CustomerValidator.validate(req.body)

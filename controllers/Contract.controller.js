@@ -14,6 +14,15 @@ export const GetContract=async (req,res)=>{
         res.status(400).send({message:error.message})
     }
 }
+export const GetOneContract=async (req,res)=>{
+    let {id}=req.params
+    try {
+        let data=await Contract.find({_id:id});
+        res.send(data)
+    } catch (error) {
+        res.status(400).send({message:error.message})
+    }
+}
 
 export const PostContract=async(req,res)=>{
     let body=req.body

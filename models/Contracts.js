@@ -39,7 +39,7 @@ const ContractSchema= new mongoose.Schema({
         required:true
     },
     paid:{
-        type:Number, 
+        type:Number,
     }
 },{timestamps:true})
 export const Contract = mongoose.model("Contract", ContractSchema);
